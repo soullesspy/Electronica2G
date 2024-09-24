@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Curso Punto de Venta</title>
+  <title>Sistema venta</title>
 
   <link rel="icon" type="image/x-icon" href="{% static 'index/img/logo.png' %}">
   <!-- Font Awesome -->
@@ -81,7 +81,7 @@
 
             <li class="nav-header">OPCIONES</li>
             <li class="nav-item">
-              <a href="" class="nav-link">
+              <a href="{% url 'Ventas'%}" class="nav-link">
                 <i class="nav-icon far fa-calendar-alt"></i>
                 <p>
                   Ventas
@@ -133,7 +133,7 @@
                 </li>
               </ul>
             </li>
-            <li class="nav-header">EMPRESA</li>
+            <li class="nav-header">Electronica 2G</li>
             <li class="nav-item">
               <a href="" class="nav-link">
                 <i class=" nav-icon fas fa-globe"></i>
@@ -141,7 +141,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link">
+              <a href="{% url 'Clientes'%}" class="nav-link">
                 <i class="nav-icon fas fa-users-cog"></i>
                 <p>Clientes</p>
               </a>
