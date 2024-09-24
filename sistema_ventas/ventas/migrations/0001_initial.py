@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('codigo', models.CharField(blank=True, max_length=200, null=True, unique=True)),
                 ('nombre', models.CharField(blank=True, max_length=255, null=True)),
                 ('direccion', models.CharField(blank=True, max_length=255, null=True)),
-                ('cedula_ruc', models.DateField(blank=True, max_length=10, null=True)),
+                ('cedula_ruc', models.CharField(blank=True, max_length=10, null=True)),
                 ('telefono', models.CharField(blank=True, max_length=10, null=True)),
                 ('email', models.EmailField(blank=True, max_length=254, null=True, unique=True)),
                 ('create', models.DateField(auto_now_add=True)),
