@@ -2,6 +2,19 @@
 {%load static %}
 {% block content %}
 <div>
-    <h1> test clientes</h1>
+    <h1> apartado clientes</h1>
+    {% for i in clientes %}
+    <h2>{{ i.codigo }}</h2>
+    <h2>{{ i.nombre }}</h2>
+    <h2>{{ i.direccion }}</h2>
+    <h2>{{ i.cedula_ruc }}</h2>
+    <h2>{{ i.telefono }}</h2>
+    <h2>{{ i.email }}</h2>
+    {% endfor %}
+
+
+
+
+
 </div>
 {%endblock%}

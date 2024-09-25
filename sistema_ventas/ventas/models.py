@@ -24,8 +24,8 @@ class Producto(models.Model):
     nombre_producto = models.CharField(max_length=255, unique=True, null=True, blank=True)
     descripcion = models.CharField(max_length=255, unique=True, null=False)
     imagen = models.ImageField(upload_to='productos', null=True, blank=True)
-    costo = models.DecimalField(max_digits=15, decimal_places=2, null=False)
-    cantidad = models.DecimalField(max_digits=10, decimal_places=2, null=False)
+    costo = models.IntegerField(null=False)
+    cantidad = models.IntegerField(null=False)
     create = models.DateField(auto_now_add=True)
     update = models.DateField(auto_now_add=True)
     
@@ -35,6 +35,6 @@ class Producto(models.Model):
         order_with_respect_to = 'nombre_producto'
     
     def __str__(self):
-        return self.nombre_product
+        return self.nombre_producto
 
 

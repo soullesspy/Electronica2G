@@ -101,17 +101,21 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Activar la localización
+USE_L10N = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'es-mx'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'America/Asuncion'
 
 USE_I18N = True
 
 USE_TZ = True
+
+USE_THOUSAND_SEPARATOR = True
 
 
 # Static files (CSS, JavaScript, Images)
