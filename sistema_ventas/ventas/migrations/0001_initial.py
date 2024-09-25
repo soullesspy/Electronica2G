@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             name='Cliente',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('codigo', models.CharField(blank=True, max_length=200, null=True, unique=True)),
+                ('codigo', models.CharField(blank=True, max_length=10, null=True, unique=True)),
                 ('nombre', models.CharField(blank=True, max_length=255, null=True)),
                 ('direccion', models.CharField(blank=True, max_length=255, null=True)),
                 ('cedula_ruc', models.CharField(blank=True, max_length=10, null=True)),
@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
             name='Producto',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('codigo', models.CharField(blank=True, max_length=200, null=True, unique=True)),
+                ('codigo', models.CharField(blank=True, max_length=10, null=True, unique=True)),
                 ('nombre_producto', models.CharField(blank=True, max_length=255, null=True, unique=True)),
                 ('descripcion', models.CharField(max_length=255, unique=True)),
                 ('imagen', models.ImageField(blank=True, null=True, upload_to='productos')),

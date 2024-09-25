@@ -1,9 +1,10 @@
 from django.db import models
+import uuid
 
 # Create your models here.
 
 class Cliente (models.Model):
-    codigo = models.CharField(max_length=200, unique=True, null=True, blank=True)
+    codigo = models.CharField(max_length=10, unique=True, null=True, blank=True)
     nombre = models.CharField(max_length=255, null=True, blank=True)
     direccion = models.CharField(max_length=255, null=True, blank=True)
     cedula_ruc = models.CharField(max_length=10, null=True, blank=True)
@@ -15,12 +16,15 @@ class Cliente (models.Model):
     class Meta:
         verbose_name = 'cliente'
         verbose_name_plural = 'Clientes'
-    
+    def save(self, *args, **kwargs):
+        if not self.codigo:
+            self.codigo = str(uuid.uuid4())[:4]  # Genera un código único de 4 caracteres
+        super().save(*args, **kwargs)
     def __str__(self):
         return self.nombre
     
 class Producto(models.Model):
-    codigo = models.CharField(max_length=200, unique=True, null=True, blank=True)
+    codigo = models.CharField(max_length=10, unique=True, null=True, blank=True)
     nombre_producto = models.CharField(max_length=255, unique=True, null=True, blank=True)
     descripcion = models.CharField(max_length=255, unique=True, null=False)
     imagen = models.ImageField(upload_to='productos', null=True, blank=True)
@@ -33,7 +37,10 @@ class Producto(models.Model):
         verbose_name = 'producto'
         verbose_name_plural = 'Productos'
         order_with_respect_to = 'nombre_producto'
-    
+    def save(self, *args, **kwargs):
+        if not self.codigo:
+            self.codigo = str(uuid.uuid4())[:4]  # Genera un código único de 4 caracteres
+        super().save(*args, **kwargs)
     def __str__(self):
         return self.nombre_producto
 
