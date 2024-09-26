@@ -20,14 +20,20 @@ class AddClienteForm(forms.ModelForm):
 class EditarClienteForm(forms.ModelForm):
     class Meta:
         model = Cliente
-        fields = ('codigo', 'nombre','telefono')
+        fields = ('codigo', 'nombre', 'direccion', 'cedula_ruc', 'telefono', 'email')
         labels = {
             'codigo': 'Código',
             'nombre': 'Nombre',
+            'direccion': 'Dirección',
+            'cedula_ruc': 'Cédula/RUC',
             'telefono': 'Teléfono',
+            'email' : 'Email',
         }
         widgets = {
-            'codigo': forms.TextInput(attrs={'type': 'text', 'id': 'codigo_editar'}),
+            'codigo': forms.TextInput(attrs={'type': 'text', 'id': 'codigo_editar', 'placeholder': 'Dejar en blanco para autogenerar'}),
             'nombre': forms.TextInput(attrs={'id': 'nombre_editar'}),
+            'direccion': forms.TextInput(attrs={'id': 'direccion_editar'}),
+            'cedula_ruc': forms.TextInput(attrs={'id': 'cedula_ruc_editar'}),
             'telefono': forms.TextInput(attrs={'id': 'telefono_editar'}),
+            'email': forms.TextInput(attrs={'id': 'email_editar'}),   
         }
