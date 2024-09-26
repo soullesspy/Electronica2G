@@ -4,7 +4,7 @@ from ventas.models import Cliente, Producto
 # Register your models here.
 
 class ClienteAdmin(admin.ModelAdmin):
-    list_display = ('nombre', 'telefono','codigo', 'cedula_ruc')
+    list_display = ('codigo', 'nombre', 'direccion', 'cedula_ruc', 'telefono', 'email')
     search_fields = ['nombre']
     readonly_fields = ('create', 'update')
     filter_horizontal = ()

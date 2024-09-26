@@ -4,11 +4,11 @@ import uuid
 # Create your models here.
 
 class Cliente (models.Model):
-    codigo = models.CharField(max_length=10, unique=True, null=True, blank=True)
-    nombre = models.CharField(max_length=255, null=True, blank=True)
+    codigo = models.CharField(max_length=10, unique=True, null=False, blank=True)
+    nombre = models.CharField(max_length=255, null=True, blank=False)
     direccion = models.CharField(max_length=255, null=True, blank=True)
     cedula_ruc = models.CharField(max_length=10, null=True, blank=True)
-    telefono = models.CharField(max_length=10, null=True, blank=True)
+    telefono = models.CharField(max_length=10, null=True, blank=False)
     email = models.EmailField(unique=True, null=True, blank=True)
     create = models.DateField(auto_now_add=True)
     update = models.DateField(auto_now_add=True)
@@ -24,8 +24,8 @@ class Cliente (models.Model):
         return self.nombre
     
 class Producto(models.Model):
-    codigo = models.CharField(max_length=10, unique=True, null=True, blank=True)
-    nombre_producto = models.CharField(max_length=255, unique=True, null=True, blank=True)
+    codigo = models.CharField(max_length=10, unique=True, null=False, blank=True)
+    nombre_producto = models.CharField(max_length=255, unique=True, null=False, blank=True)
     descripcion = models.CharField(max_length=255, unique=True, null=False)
     imagen = models.ImageField(upload_to='productos', null=True, blank=True)
     costo = models.IntegerField(null=False)

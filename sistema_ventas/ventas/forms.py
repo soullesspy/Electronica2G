@@ -14,4 +14,5 @@ class AddClienteForm(forms.ModelForm):
             'direccion': 'Dirección',
             'cedula_ruc': 'Cédula/RUC',
             'telefono': 'Teléfono',
+            'email' : 'Email',
         }
