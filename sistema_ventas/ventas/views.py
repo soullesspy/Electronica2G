@@ -34,4 +34,7 @@ def edit_cliente_view(request):
     return redirect('Clientes')
 
 def delete_cliente_view(request):
+    if request.POST:
+        cliente = Cliente.objects.get(pk=request.POST.get('id_personal_eliminar'))
+        cliente.delete()
     return redirect('Clientes')
