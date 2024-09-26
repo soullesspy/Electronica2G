@@ -94,6 +94,7 @@ function eliminarProducto(id) {
   document.getElementById("id_producto_eliminar").value = id;
 }
 
+//Al formulario editar cliente, completa con datos existentes en clientes.html
 function editarPersonal(id, nombre, telefono, codigo, cedula_ruc, direccion, email) {
   document.getElementById("id_personal_editar").value = id;
   document.getElementById("nombre_editar").value = nombre;
