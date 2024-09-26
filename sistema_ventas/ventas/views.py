@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Cliente, Producto
-from .forms import AddClienteForm
+from .forms import AddClienteForm, EditarClienteForm
 
 # Create your views here.
 
@@ -11,9 +11,11 @@ def ventas_view(request):
 def clientes_view(request):
     clientes = Cliente.objects.all()
     form_personal = AddClienteForm()
+    form_editar = EditarClienteForm()
     context = {
         'clientes' : clientes,
-        'form_personal' : form_personal
+        'form_personal' : form_personal,
+        'form_editar' : form_editar,
     }
     return render(request, 'clientes.html', context)
 

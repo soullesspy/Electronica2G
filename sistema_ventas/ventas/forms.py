@@ -4,7 +4,7 @@ from ventas.models import Cliente
 class AddClienteForm(forms.ModelForm):
     class Meta:
         model = Cliente
-        fields = ['codigo', 'nombre', 'direccion', 'cedula_ruc', 'telefono', 'email']
+        fields = ('codigo', 'nombre', 'direccion', 'cedula_ruc', 'telefono', 'email')
         widgets = {
             'codigo': forms.TextInput(attrs={'placeholder': 'Dejar en blanco para autogenerar'}),
         }
@@ -15,4 +15,19 @@ class AddClienteForm(forms.ModelForm):
             'cedula_ruc': 'Cédula/RUC',
             'telefono': 'Teléfono',
             'email' : 'Email',
+        }
+
+class EditarClienteForm(forms.ModelForm):
+    class Meta:
+        model = Cliente
+        fields = ('codigo', 'nombre','telefono')
+        labels = {
+            'codigo': 'Código',
+            'nombre': 'Nombre',
+            'telefono': 'Teléfono',
+        }
+        widgets = {
+            'codigo': forms.TextInput(attrs={'type': 'text', 'id': 'codigo_editar'}),
+            'nombre': forms.TextInput(attrs={'id': 'nombre_editar'}),
+            'telefono': forms.TextInput(attrs={'id': 'telefono_editar'}),
         }
