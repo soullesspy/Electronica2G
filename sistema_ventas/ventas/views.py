@@ -20,7 +20,6 @@ def clientes_view(request):
     return render(request, 'clientes.html', context)
 
 def add_cliente_view(request):
-    #print("guardar clientes")
     if request.POST:
         form = AddClienteForm(request.POST, request.FILES)
         if form.is_valid:
@@ -33,6 +32,11 @@ def add_cliente_view(request):
     return redirect('Clientes')
 
 def edit_cliente_view(request):
+    if request.POST:
+        cliente = Cliente.objects.get(pk=request.POST.get('id_personal_eliminar'))
+        form = EditarClienteForm(request.POST, request.FILES, instance= cliente)
+        if form.is_valid:
+            form.save()
     return redirect('Clientes')
 
 def delete_cliente_view(request):
