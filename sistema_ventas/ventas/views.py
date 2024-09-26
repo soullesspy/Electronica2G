@@ -33,10 +33,15 @@ def add_cliente_view(request):
 
 def edit_cliente_view(request):
     if request.POST:
-        cliente = Cliente.objects.get(pk=request.POST.get('id_personal_eliminar'))
-        form = EditarClienteForm(request.POST, request.FILES, instance= cliente)
+        cliente = Cliente.objects.get(pk=request.POST.get('id_personal_editar'))
+        form = EditarClienteForm(request.POST, request.FILES, instance=cliente)
         if form.is_valid:
-            form.save()
+            try:
+                form.save()
+                messages.success(request, "Cliente guardado exitosamente")
+            except:
+                messages.error(request, "Error al guardar el cliente")
+                return redirect('Clientes')
     return redirect('Clientes')
 
 def delete_cliente_view(request):

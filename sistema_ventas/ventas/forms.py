@@ -30,7 +30,7 @@ class EditarClienteForm(forms.ModelForm):
             'email' : 'Email',
         }
         widgets = {
-            'codigo': forms.TextInput(attrs={'type': 'text', 'id': 'codigo_editar', 'placeholder': 'Dejar en blanco para autogenerar'}),
+            'codigo': forms.TextInput(attrs={'id': 'codigo_editar', 'placeholder': 'Dejar en blanco para autogenerar'}),
             'nombre': forms.TextInput(attrs={'id': 'nombre_editar'}),
             'direccion': forms.TextInput(attrs={'id': 'direccion_editar'}),
             'cedula_ruc': forms.TextInput(attrs={'id': 'cedula_ruc_editar'}),
