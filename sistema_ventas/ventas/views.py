@@ -49,3 +49,16 @@ def delete_cliente_view(request):
         cliente = Cliente.objects.get(pk=request.POST.get('id_personal_eliminar'))
         cliente.delete()
     return redirect('Clientes')
+
+def productos_view(request):
+    """
+    clientes = Cliente.objects.all()
+    form_personal = AddClienteForm()
+    form_editar = EditarClienteForm()
+    """
+    context = {
+        'clientes' : clientes,
+        'form_personal' : form_personal,
+        'form_editar' : form_editar,
+    }
+    return render(request, 'clientes.html', context)
