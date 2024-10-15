@@ -25,10 +25,10 @@ class Cliente (models.Model):
     
 class Producto(models.Model):
     codigo = models.CharField(max_length=10, unique=True, null=False, blank=True)
-    nombre_producto = models.CharField(max_length=255, unique=True, null=False, blank=True)
     descripcion = models.CharField(max_length=255, unique=True, null=False)
     imagen = models.ImageField(upload_to='productos', null=True, blank=True)
-    costo = models.IntegerField(null=False)
+    costo = models.IntegerField(null=False, default=0)
+    precio = models.IntegerField(null=False, default=0)
     cantidad = models.IntegerField(null=False)
     create = models.DateField(auto_now_add=True)
     update = models.DateField(auto_now_add=True)
@@ -36,12 +36,12 @@ class Producto(models.Model):
     class Meta:
         verbose_name = 'producto'
         verbose_name_plural = 'Productos'
-        order_with_respect_to = 'nombre_producto'
+        order_with_respect_to = 'descripcion'
     def save(self, *args, **kwargs):
         if not self.codigo:
             self.codigo = str(uuid.uuid4())[:4]  # Genera un código único de 4 caracteres
         super().save(*args, **kwargs)
     def __str__(self):
-        return self.nombre_producto
+        return self.descripcion
 
 

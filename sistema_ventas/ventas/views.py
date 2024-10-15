@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Cliente, Producto
-from .forms import AddClienteForm, EditarClienteForm
+from .forms import AddClienteForm, EditarClienteForm, AddProductoForm
 
 # Create your views here.
 
@@ -56,9 +56,22 @@ def productos_view(request):
     form_personal = AddClienteForm()
     form_editar = EditarClienteForm()
     """
+    productos = Producto.objects.all()
+    form_producto = AddProductoForm()
     context = {
-        'clientes' : clientes,
-        'form_personal' : form_personal,
-        'form_editar' : form_editar,
+        'productos': productos,
+        'form_producto': form_producto,
     }
-    return render(request, 'clientes.html', context)
+    return render(request, 'productos.html', context)
+
+def add_producto_view(request):
+    if request.POST:
+        form = AddProductoForm(request.POST, request.FILES)
+        if form.is_valid:
+            try:
+                form.save()
+                messages.success(request, "Producto guardado exitosamente")
+            except:
+                messages.error(request, "Error al guardar el producto")
+                return redirect('Productos')
+    return redirect('Productos')

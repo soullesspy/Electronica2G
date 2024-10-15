@@ -1,5 +1,5 @@
 from django import forms
-from ventas.models import Cliente
+from ventas.models import Cliente, Producto
 
 class AddClienteForm(forms.ModelForm):
     class Meta:
@@ -36,4 +36,21 @@ class EditarClienteForm(forms.ModelForm):
             'cedula_ruc': forms.TextInput(attrs={'id': 'cedula_ruc_editar'}),
             'telefono': forms.TextInput(attrs={'id': 'telefono_editar'}),
             'email': forms.TextInput(attrs={'id': 'email_editar'}),   
+        }
+
+class AddProductoForm(forms.ModelForm):
+    class Meta:
+        model = Producto
+        fields = ('codigo', 'descripcion', 'imagen', 'costo', 'precio',  'cantidad')
+
+        widgets = {
+            'codigo': forms.TextInput(attrs={'placeholder': 'Dejar en blanco para autogenerar'}),
+        }
+        labels = {
+            'codigo': 'Código',
+            'descripcion': 'Descipción del producto',
+            'imagen': 'Imágen del producto',
+            'costo': 'Costo del producto en Gs.',
+            'precio' : 'Precio de venta del producto en Gs.',
+            'cantidad': 'Cantidad disponible',
         }

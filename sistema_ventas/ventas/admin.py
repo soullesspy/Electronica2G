@@ -14,8 +14,8 @@ class ClienteAdmin(admin.ModelAdmin):
 admin.site.register(Cliente, ClienteAdmin)
 
 class ProductoAdmin(admin.ModelAdmin):
-    list_display = ('nombre_producto', 'cantidad','codigo', 'costo')
-    search_fields = ['nombre_producto']
+    list_display = ('descripcion', 'cantidad','codigo', 'costo')
+    search_fields = ['descripcion']
     readonly_fields = ('create', 'update')
     filter_horizontal = ()
     list_filter = ()
