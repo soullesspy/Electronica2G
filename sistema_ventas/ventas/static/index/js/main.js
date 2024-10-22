@@ -90,10 +90,6 @@ function eliminarPreventivo(id) {
   document.getElementById("id_preventivo_eliminar").value = id;
 }
 
-function eliminarProducto(id) {
-  document.getElementById("id_producto_eliminar").value = id;
-}
-
 //Al formulario editar cliente, completa con datos existentes en clientes.html
 function editarPersonal(id, nombre, telefono, codigo, cedula_ruc, direccion, email) {
   document.getElementById("id_personal_editar").value = id;
@@ -105,8 +101,21 @@ function editarPersonal(id, nombre, telefono, codigo, cedula_ruc, direccion, ema
   document.getElementById("email_editar").value = email;
 }
 
+function editarProducto(id, codigo, descripcion, costo, precio, cantidad) {
+  document.getElementById("id_producto_editar").value = id;
+  document.getElementById("codigo_producto_editar").value = codigo;
+  document.getElementById("descripcion_editar").value = descripcion;
+  document.getElementById("costo_editar").value = costo;
+  document.getElementById("precio_editar").value = precio;
+  document.getElementById("cantidad_editar").value = cantidad;
+}
+
 function eliminarPersonal(id) {
   document.getElementById("id_personal_eliminar").value = id;
+}
+
+function eliminarProducto(id) {
+  document.getElementById("id_producto_eliminar").value = id;
 }
 
 function borrarContent(){
