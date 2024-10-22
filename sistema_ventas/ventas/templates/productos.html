@@ -2,6 +2,7 @@
 
 {% load static %}
 {% load widget_tweaks %}
+{% load humanize %}
 
 {% block content %}
 
@@ -130,8 +131,8 @@
                         <td>{{i.id}}</td>
                         <td>{{i.codigo}}</td>
                         <td>{{i.descripcion}}</td>
-                        <td>{{i.costo}}</td>
-                        <td>{{i.precio}}</td>
+                        <td>{{i.costo|intcomma}}</td>
+                        <td>{{i.precio|intcomma}}</td>
                         <td>{{i.cantidad}}</td>
                         {% if i.imagen %}
                         <td><img src="{{i.imagen.url}}" alt="Error" width="100" height="100"></td>
